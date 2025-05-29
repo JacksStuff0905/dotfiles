@@ -26,13 +26,7 @@
         "disable-scroll": true,
         "all-outputs": true,
         "warp-on-scroll": false,
-        "format": "{name}: {icon}",
-        "format-icons": {
-            "urgent": "",
-            "focused": "",
-            "active": "",
-            "default": ""
-        }
+        "format": "{name}"
     },
     "clock": {
         // "timezone": "America/New_York",
@@ -70,11 +64,6 @@
         "format-disconnected": "Disconnected ⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
-    "custom/network-menu": {
-      "format": "",
-      "tooltip": false,
-      "on-click": "~/.config/waybar/menus/wifi.sh"
-    },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
         "format": "{volume}% {icon} {format_source}",
@@ -95,7 +84,7 @@
         "on-click": "pavucontrol"
     },
     "custom/power": {
-        "format" : "⏻ ",
+        "format" : "⏻",
 		"tooltip": false,
 		"menu": "on-click",
 		"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder

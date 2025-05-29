@@ -1,15 +1,15 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
-[ ](bg:bg_color1 fg:bg_color1)\
+[](bg:bg_color1 fg:bg_color1)\
 $os\
 $username\
-[](bg:bg_color2 fg:bg_color1)\
+[](bg:bg_color2 fg:bg_color1)\
 $directory\
-[](fg:bg_color2 bg:bg_color3)\
+[](fg:bg_color2 bg:bg_color3)\
 $git_branch\
 $git_status\
-[](fg:bg_color3 bg:bg_color4)\
+[](fg:bg_color3 bg:bg_color4)\
 $c\
 $cpp\
 $rust\
@@ -20,13 +20,13 @@ $java\
 $kotlin\
 $haskell\
 $python\
-[](fg:bg_color4 bg:bg_color5)\
+[](fg:bg_color4 bg:bg_color5)\
 $docker_context\
 $conda\
 $pixi\
-[](fg:bg_color5 bg:bg_color6)\
+[](fg:bg_color5 bg:bg_color6)\
 $time\
-[ ](fg:bg_color6)\
+[ ](fg:bg_color6)\
 $line_break$character """
 
 palette = 'doom-theme'

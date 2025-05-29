@@ -7,16 +7,16 @@
 
 
 /* Mode colors*/
-@define-color power-color #545c2b;
+@define-color power-color #ff0000;
 @define-color clock-color #545c2b;
 @define-color battery-color #444c27;
 @define-color memory-color #707b52;
-@define-color cpu-color #464e3d;
+@define-color cpu-color #736e34;
 @define-color pulseaudio-color #213432;
-@define-color network-color #3a3528;
+@define-color network-color #464e3d;
 
 * {
-    font-family: Caskaydia Cove Nerd Font;
+    font-family: Caskaydia Cove Nerd Font Propo;
     font-size: 18px;
     font-weight: bold;
 }
@@ -121,14 +121,15 @@ button:hover {
 #custom-power,
 #window,
 #workspaces {
-  border: 3px solid @mode-border;
     margin: 4px;
     padding: 1px 16px;
-  border-radius: 4px;
   background-color: transparent;
 
 }
 
+#window {
+  border-bottom: 3px solid @main-color;
+}
 
 /* If workspaces is the leftmost module, omit left margin */
 .modules-left > widget:first-child > #workspaces {
@@ -141,20 +142,24 @@ button:hover {
 }
 
 #custom-power {
-  color: @clock-color;
+  color: @power-color;
+  border-bottom: 3px solid @power-color
 }
 
 #clock {
   color: @clock-color;
+  border-bottom: 3px solid @clock-color;
 }
 
 #battery {
     color: @battery-color;
+    border-bottom: 3px solid @battery-color;
 }
 
 /* TODO */
 #battery.charging, #battery.plugged {
     color: @main-text;
+    border-bottom: 3px solid @main-color;
 }
 
 @keyframes blink {
@@ -180,10 +185,12 @@ label:focus {
 
 #cpu {
     color: @cpu-color;
+    border-bottom: 3px solid @cpu-color;
 }
 
 #memory {
   color: @memory-color;
+  border-bottom: 3px solid @memory-color;
 }
 
 #disk {
@@ -195,7 +202,8 @@ label:focus {
 }
 
 #network {
-  color: @network-color
+  color: @network-color;
+  border-bottom: 3px solid @network-color;
 }
 
 #network.disconnected {
@@ -204,6 +212,7 @@ label:focus {
 
 #pulseaudio {
     color: @pulseaudio-color;
+    border-bottom: 3px solid @pulseaudio-color;
 }
 
 #pulseaudio.muted {

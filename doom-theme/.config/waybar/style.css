@@ -1,4 +1,5 @@
 @define-color main-text #ff0000;
+@define-color error-color #ff0000;
 
 @define-color current-workspace-underline #545c2b;
 @define-color workspace-underline #ff0000;
@@ -52,7 +53,6 @@ window#waybar.chromium {
 
 button {
     /* Use box-shadow instead of border so the text isn't offset */
-    box-shadow: inset 0 -3px transparent;
     /* Avoid rounded borders under each button name */
     border: none;
     border-radius: 0;
@@ -61,12 +61,8 @@ button {
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
     background: inherit;
-    box-shadow: inset 0 -3px #ffffff;
-}
-
-/* you can set a style on hover for any module like this */
-#pulseaudio:hover {
-    background-color: #a37800;
+    box-shadow: inherit;
+    text-shadow: inherit;
 }
 
 #workspaces button.active {
@@ -84,12 +80,17 @@ button:hover {
 }
 
 #workspaces button:hover {
-    background: rgba(0, 0, 0, 0.2);
+  background-color: @workspace-underline;
+  color: black;
+}
+
+#workspaces button.active:hover {
+  background-color: @workspace-active-text;
+  color: black;
 }
 
 #workspaces button.focused {
     background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
 }
 
 #workspaces button.urgent {
@@ -98,7 +99,6 @@ button:hover {
 
 #mode {
     background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
 }
 
 #clock,
@@ -128,7 +128,13 @@ button:hover {
 }
 
 #window {
-  border-bottom: 3px solid @main-color;
+  border-bottom: 3px solid @main-text;
+  color: @main-text;
+}
+
+#window:hover {
+  background-color: @main-text;
+  color: black;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -146,9 +152,19 @@ button:hover {
   border-bottom: 3px solid @power-color
 }
 
+#custom-power:hover {
+  background-color: @power-color;
+  color: black;
+}
+
 #clock {
   color: @clock-color;
   border-bottom: 3px solid @clock-color;
+}
+
+#clock:hover {
+  background-color: @clock-color;
+  color: black;
 }
 
 #battery {
@@ -156,27 +172,44 @@ button:hover {
     border-bottom: 3px solid @battery-color;
 }
 
+#battery:hover {
+    background-color: @battery-color;
+    color: black;
+}
+
 /* TODO */
 #battery.charging, #battery.plugged {
-    color: @main-text;
-    border-bottom: 3px solid @main-color;
+    color: @battery-color;
+    border-bottom: 3px solid @battery-color;
+}
+
+#battery.charging:hover, #battery.plugged:hover {
+    background-color: @battery-color;
+    color: black;
 }
 
 @keyframes blink {
     to {
-        background-color: #ffffff;
-        color: @main-text;
+        background-color: @error-color;
+        color: black;
     }
 }
 
 /* Using steps() instead of linear as a timing function to limit cpu usage */
 #battery.critical:not(.charging) {
-    color: @main-text;
+    color: @error-color;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: steps(12);
-    animation-iteration-count: infinite;
+    animation-iteration-count: 20;/* infinite or a set amount */
     animation-direction: alternate;
+    
+    border-bottom: 3px solid @error-color;
+}
+
+#battery.critical:not(.charging):hover {
+    background-color: @error-color;
+    color: black;
 }
 
 label:focus {
@@ -188,9 +221,19 @@ label:focus {
     border-bottom: 3px solid @cpu-color;
 }
 
+#cpu:hover {
+    background-color: @cpu-color;
+    color: black;
+}
+
 #memory {
   color: @memory-color;
   border-bottom: 3px solid @memory-color;
+}
+
+#memory:hover {
+  background-color: @memory-color;
+  color: black;
 }
 
 #disk {
@@ -206,8 +249,14 @@ label:focus {
   border-bottom: 3px solid @network-color;
 }
 
+#network:hover {
+  background-color: @network-color;
+  color: black;
+}
+
 #network.disconnected {
-    background-color: #f53c3c;
+    background-color: transparent;
+    color: @error-color
 }
 
 #pulseaudio {
@@ -215,9 +264,14 @@ label:focus {
     border-bottom: 3px solid @pulseaudio-color;
 }
 
+#pulseaudio:hover {
+    background-color: @pulseaudio-color;
+    color: black;
+}
+
 #pulseaudio.muted {
-    background-color: #90b1b1;
-    color: @main-text;
+    background-color: transparent;
+    color: @error-color;
 }
 
 #wireplumber {

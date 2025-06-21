@@ -1,3 +1,0 @@
-magick doom-slayer-symbol_1440x900.png -gravity center -crop 400x400+0+0 +repage test.jpg
-
-fastfetch

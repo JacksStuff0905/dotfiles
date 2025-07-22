@@ -13,3 +13,15 @@ vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {})
 
 -- Configure formatters
 vim.keymap.set('n', '<leader>fr', vim.lsp.buf.format, {})
+
+
+
+-- Configure window navigation
+vim.keymap.set('n', 'H', '<C-w>h', { desc = 'Move to left window' })
+vim.keymap.set('n', 'J', '<C-w>j', { desc = 'Move to lower window' })
+vim.keymap.set('n', 'K', '<C-w>k', { desc = 'Move to upper window' })
+vim.keymap.set('n', 'L', '<C-w>l', { desc = 'Move to right window' })
+
+
+vim.keymap.set('n', '<leader>bc', '<C-o>', { desc = 'Return to previous window' })
+vim.keymap.set('n', '<leader>fw', '<C-i>', { desc = 'Return to next window' })

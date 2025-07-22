@@ -7,10 +7,4 @@ require('telescope').setup {
 }
 
 
--- Setup treesitter
-local config = require("nvim-treesitter.configs")
-config.setup({
-  ensure_installed = { "lua", "python", "c", "cpp" },
-  highlight = { enable = true },
-  indent = { enable = true },
-})
+

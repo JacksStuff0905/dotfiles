@@ -10,18 +10,18 @@ return {
 
           -- C/C++
           null_ls.builtins.formatting.clang_format,
-          null_ls.builtins.diagnostics.cpplint,
+          -- null_ls.builtins.diagnostics.cpplint,
 
           -- Docker
           null_ls.builtins.diagnostics.hadolint,
 
           -- Python
-          null_ls.builtins.diagnostics.black,
+          null_ls.builtins.formatting.black,
           null_ls.builtins.formatting.isort,
 
           -- GDscript
-          null_ls.builtins.diagnostics.gdtoolkit,
-          null_ls.builtins.formatting.gdtoolkit,
+          null_ls.builtins.diagnostics.gdlint,
+          null_ls.builtins.formatting.gdformat,
 
         }
       })

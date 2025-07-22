@@ -1,15 +1,21 @@
 return {
   {
     "williamboman/mason.nvim",
+    lazy = false,
     config = function()
       require("mason").setup()
     end,
   },
-  --[[{
+  {
     "williamboman/mason-lspconfig.nvim",
+    lazy = false,
+    dependencies = {
+      "williamboman/mason.nvim",
+    },
     config = function()
+      --[[
       require("mason-lspconfig").setup({
-        ensure_installed =
+       ensure_installed =
           {
             "lua_ls",
             "pyright",
@@ -17,10 +23,12 @@ return {
             "bashls",
           }
       })
-    end
-  },]]
+      ]]
+    end,
+  },
   {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
+    lazy = false,
     dependencies = {
       "williamboman/mason.nvim",
     },
@@ -54,12 +62,33 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
+    lazy = false,
     config = function()
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
       local lspconfig = require("lspconfig")
-      lspconfig.lua_ls.setup({})
-      lspconfig.pyright.setup({})
-      lspconfig.omnisharp.setup({})
-      lspconfig.bashls.setup({})
+
+      lspconfig.lua_ls.setup({
+        capabilities = capabilities
+      })
+      lspconfig.pyright.setup({
+        capabilities = capabilities
+      })
+      lspconfig.omnisharp.setup({
+        capabilities = capabilities
+      })
+      lspconfig.bashls.setup({
+        capabilities = capabilities
+      })
+      lspconfig.clangd.setup({
+        capabilities = capabilities
+      })
+      lspconfig.docker_compose_language_service.setup({
+        capabilities = capabilities
+      })
+      lspconfig.dockerls.setup({
+        capabilities = capabilities
+      })
     end,
   },
 }

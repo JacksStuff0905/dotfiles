@@ -1,7 +1,7 @@
 return {
 	{
 		"rktjmp/lush.nvim",
-    { dir = '/Users/jacek/.config/nvim/current-theme', lazy = true}
+    { dir = vim.fn.resolve(vim.fn.stdpath("config") .. '/current-theme'), lazy = true}
 	},
 	{
 		"mocte4/godotcolour-vim",

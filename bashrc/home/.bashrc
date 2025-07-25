@@ -21,4 +21,4 @@ export EDITOR="$(which nvim)"
 eval "$(starship init bash)"
 
 # Custom theme
-bash $HOME/.current-theme-rc
+bash $HOME/.current-theme-rc &> /dev/null

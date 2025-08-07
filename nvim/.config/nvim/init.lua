@@ -4,10 +4,13 @@ local debug = false
 -- Load optional module
 local function require_opt(module)
   local success = pcall(require, module)
-  if not success then
+  if (not success) and debug then
     print("Failed to load optional module" .. module)
   end
 end
+
+-- termguicolors
+vim.o.termguicolors = true
 
 
 -- Load required configs

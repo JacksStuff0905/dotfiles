@@ -12,13 +12,19 @@ PS1='[\u@\h \W]\$ '
 
 
 # Custom
-alias icat='kitten icat'
+if type kitten &> /dev/null; then
+  alias icat='kitten icat'
+fi
 
 # Env
-export EDITOR="$(which nvim)"
+if type nvim &> /dev/null; then
+  export EDITOR="$(which nvim)"
+fi
 
 # Starship prompt:
-eval "$(starship init bash)"
+if type starship &> /dev/null; then
+  eval "$(starship init bash)"
+fi
 
 # Custom theme
 if [[ -f "$HOME/.current-theme-rc" || -L "$HOME/.current-theme-rc" ]]; then

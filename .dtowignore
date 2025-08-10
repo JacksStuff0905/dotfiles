@@ -6,3 +6,5 @@ README.md
 
 nvim/.config/nvim/lazy-lock.json
 nvim/**/.luarc.json
+
+**/.projects

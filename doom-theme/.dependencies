@@ -1,3 +1,5 @@
-imagemagick
+imagemagick 
 fastfetch
-ascii-image-converter
+ascii-image-converter:
+  yay: ascii-image-converter-git
+  brew: TheZoraiz/ascii-image-converter/ascii-image-converter

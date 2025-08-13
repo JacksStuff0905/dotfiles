@@ -2,6 +2,11 @@ neovim
 
 python
 perl
+curl
+unzip
+ruby
+python-pip
+npm
 
 ripgrep
 fd

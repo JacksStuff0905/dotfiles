@@ -6,7 +6,7 @@ ascii-image-converter:
   brew: TheZoraiz/ascii-image-converter/ascii-image-converter
 
 caskaydia-cove-nerd-font:
-  yay: ttf-caskaydia-cove-nerd
+  yay: ttf-cascadia-cove-nerd
 
 hyprlock
 

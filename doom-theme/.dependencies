@@ -4,3 +4,6 @@ fastfetch
 ascii-image-converter:
   yay: ascii-image-converter-git
   brew: TheZoraiz/ascii-image-converter/ascii-image-converter
+
+caskaydia-cove-nerd-font:
+  yay: ttf-caskaydia-cove-nerd

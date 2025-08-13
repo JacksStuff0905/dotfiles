@@ -1,6 +1,6 @@
 #!/bin/bash
 
-fastfetch_logo_source="$HOME/doom-slayer-symbol_1440x900.png"
+fastfetch_logo_source="$HOME/wallpapers/doom1.png"
 fastfetch_logo_out="$HOME/.config/fastfetch/logo.png"
 fastfetch_logo_txt_out="$HOME/.config/fastfetch/logo.txt"
 

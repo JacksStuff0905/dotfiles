@@ -1,0 +1,30 @@
+/* base16-wofi (https://sr.ht/~knezi/base16-wofi)
+ * Base16 wofi template by knezi
+ * oomox-doom-theme scheme by oomox-doom-theme */
+
+window {
+	background-color: #000000;
+	color: #fe0000;
+}
+
+#entry:nth-child(odd) {
+	background-color: #000000;
+}
+
+#entry:nth-child(even) {
+	background-color: #29221a;
+}
+
+#entry:selected {
+	background-color: #450002;
+}
+
+#input {
+	background-color: #29221a;
+	color: #000000;
+	border-color: #450002; 
+}
+
+#input:focus {
+	border-color: #736e34; 
+}

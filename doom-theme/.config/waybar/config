@@ -60,11 +60,11 @@
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "",
-        "format-ethernet": "",
-        "tooltip-format": "{ifname} via {gwaddr} , {essid} ",
-        "format-linked": "(No IP) ",
-        "format-disconnected": " ⚠"
+        "format-wifi": "󰖩",
+        "format-ethernet": "",
+        "tooltip-format": "{ifname} via {gwaddr} , {essid} 󰖩",
+        "format-linked": "(No IP) 󱚵",
+        "format-disconnected": " ⚠"
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float

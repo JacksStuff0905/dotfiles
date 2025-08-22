@@ -22,6 +22,7 @@ require("conf.tools")
 require("conf.keymap")
 require("conf.theme")
 require("conf.clipboard")
+require("conf.pipes")
 
 -- Load optional configs
 require_opt("opt.utils")

@@ -89,6 +89,10 @@ return {
       lspconfig.dockerls.setup({
         capabilities = capabilities
       })
+      lspconfig.gdscript.setup({
+        capabilities = capabilities
+      })
+
     end,
   },
 }

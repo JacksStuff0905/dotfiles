@@ -2,6 +2,8 @@ README.md
 
 **/.git/
 
+**/*.sync-conflict*
+
 **/.dependencies
 
 nvim/.config/nvim/lazy-lock.json

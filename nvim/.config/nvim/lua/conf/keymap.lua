@@ -1,3 +1,6 @@
+-- Override sudo
+vim.cmd("ca w!! SudaWrite")
+
 -- Configure telescope
 local builtin = require("telescope.builtin")
 vim.keymap.set('n', '<leader>fd', builtin.find_files, {})

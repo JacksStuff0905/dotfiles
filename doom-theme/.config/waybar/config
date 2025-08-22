@@ -60,11 +60,11 @@
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "",
-        "format-ethernet": "",
-        "tooltip-format": "{ifname} via {gwaddr} , {essid} ",
-        "format-linked": "(No IP) ",
-        "format-disconnected": " ⚠"
+        "format-wifi": "󰖩",
+        "format-ethernet": "",
+        "tooltip-format": "{ifname} via {gwaddr} , {essid} 󰖩",
+        "format-linked": "(No IP) 󱚵",
+        "format-disconnected": " ⚠"
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
@@ -87,14 +87,15 @@
     },
     "custom/power": {
         "format" : "⏻",
-		"tooltip": false,
-		"menu": "on-click",
-		"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
-		"menu-actions": {
-			"shutdown": "shutdown",
-			"reboot": "reboot",
-			"suspend": "systemctl suspend",
-			"hibernate": "systemctl hibernate"
-		}
+        "tooltip": false,
+        "menu": "on-click",
+        "menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
+        "menu-actions": {
+          "shutdown": "shutdown",
+          "reboot": "reboot",
+          "suspend": "systemctl suspend",
+          "hibernate": "systemctl hibernate",
+          "exit_hyprland": "hyprctl dispatch exit",
+        }
     }
 }

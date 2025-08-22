@@ -17,6 +17,8 @@ vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {})
 -- Configure formatters
 vim.keymap.set('n', '<leader>fr', vim.lsp.buf.format, {})
 
+-- Configure linters
+vim.keymap.set('n', '<leader>er', vim.diagnostic.open_float, {})
 
 -- Configure colorizer
 function toggle_colorizer(c)

@@ -69,7 +69,7 @@ return {
 			},
 			setup = {
 				gdscript = function(_, opts)
-					require("lspconfig")["gdscript"].setup({
+					require("lspconfig").gdscript.setup({
 						name = "godot",
 
 						-- Fill in your Godot Language Server parameters
@@ -111,6 +111,10 @@ return {
 			lspconfig.dockerls.setup({
 				capabilities = capabilities,
 			})
+      lspconfig.gdscript.setup({
+				capabilities = capabilities,
+			})
+
 		end,
 	},
 }

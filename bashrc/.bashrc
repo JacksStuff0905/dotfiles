@@ -33,6 +33,11 @@ if type starship &> /dev/null; then
   eval "$(starship init bash)"
 fi
 
+# Godot neovim integration
+if type neovim &> /dev/null; then
+  alias nvim='nvim --listen /tmp/godot.pipe'
+fi
+
 # Custom theme
 if [[ -f "$HOME/.current-theme-rc" || -L "$HOME/.current-theme-rc" ]]; then
   bash "$HOME/.current-theme-rc"

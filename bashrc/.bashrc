@@ -34,7 +34,7 @@ if type starship &> /dev/null; then
 fi
 
 # Godot neovim integration
-if type neovim &> /dev/null; then
+if type nvim &> /dev/null; then
   alias nvim='nvim --listen /tmp/godot.pipe'
 fi
 

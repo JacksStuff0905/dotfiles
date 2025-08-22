@@ -27,6 +27,12 @@ local colorizer = require('colorizer')
 vim.keymap.set('n', '<leader>cl', function() toggle_colorizer(colorizer) end, {})
 
 
+-- Configure debuggers
+local dap = require("dap")
+vim.keymap.set('n', '<leader>br', dap.toggle_breakpoint, {})
+vim.keymap.set('n', '<leader>cn', dap.continue, {})
+
+
 -- Configure window navigation
 vim.keymap.set('n', 'H', '<C-w>h', { desc = 'Move to left window' })
 vim.keymap.set('n', 'J', '<C-w>j', { desc = 'Move to lower window' })

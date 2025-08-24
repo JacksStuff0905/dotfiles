@@ -23,6 +23,8 @@ fi
 
 # Godot neovim integration
 godot() {
+  pkill -f "^nvim --listen /tmp/godot.pipe$"
+
   /usr/local/bin/godot "$@" &
   nvim --listen /tmp/godot.pipe
 }

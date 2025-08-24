@@ -34,9 +34,10 @@ if type starship &> /dev/null; then
 fi
 
 # Godot neovim integration
-if type nvim &> /dev/null; then
-  alias nvim='nvim --listen /tmp/godot.pipe'
-fi
+godot() {
+  /usr/local/bin/godot "$@" &
+  nvim --listen /tmp/godot.pipe
+}
 
 # Custom theme
 if [[ -f "$HOME/.current-theme-rc" || -L "$HOME/.current-theme-rc" ]]; then

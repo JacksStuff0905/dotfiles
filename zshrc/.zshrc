@@ -5,6 +5,14 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 PS1="%n@%m %1~ %#"
 
+# Yazi cd functionality
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
 
 # Custom
 if type kitten &> /dev/null; then
@@ -22,11 +30,16 @@ if type starship &> /dev/null; then
 fi
 
 # Godot neovim integration
-godot() {
-  pkill -f "^nvim --listen /tmp/godot.pipe$"
+function ngd() {
+  pkill -f "^nvim --listen /tmp/godot.pipe"
 
-  /usr/local/bin/godot "$@" &
-  nvim --listen /tmp/godot.pipe
+  if [[ -z "$1" ]]; then
+    /usr/local/bin/godot &> /dev/null &
+    nvim --listen /tmp/godot.pipe
+  else
+    /usr/local/bin/godot -e "$1" &> /dev/null &
+    nvim --listen /tmp/godot.pipe "$1"
+  fi
 }
 
 # Custom theme

@@ -33,13 +33,20 @@ if type starship &> /dev/null; then
   eval "$(starship init bash)"
 fi
 
-# Godot neovim integration
-godot() {
-  pkill -f "^nvim --listen /tmp/godot.pipe$"
 
-  /usr/local/bin/godot "$@" &
-  nvim --listen /tmp/godot.pipe
+# Godot neovim integration
+function ngd() {
+  pkill -f "^nvim --listen /tmp/godot.pipe"
+
+  if [[ -z "$1" ]]; then
+    /usr/local/bin/godot &> /dev/null &
+    nvim --listen /tmp/godot.pipe
+  else
+    /usr/local/bin/godot -e "$1" &> /dev/null &
+    nvim --listen /tmp/godot.pipe "$1"
+  fi
 }
+
 
 # Custom theme
 if [[ -f "$HOME/.current-theme-rc" || -L "$HOME/.current-theme-rc" ]]; then

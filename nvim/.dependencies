@@ -12,5 +12,7 @@ luarocks
 
 pkgconfig
 
+ollama
+
 ripgrep
 fd

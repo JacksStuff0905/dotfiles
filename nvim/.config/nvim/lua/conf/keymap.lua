@@ -12,6 +12,7 @@ vim.keymap.set("n", "<leader>fs", ":Neotree filesystem toggle left<CR>", {})
 -- Configure lsp
 vim.keymap.set("n", "<leader>dc", vim.lsp.buf.hover, {})
 vim.keymap.set("n", "<leader>df", vim.lsp.buf.definition, {})
+vim.keymap.set("n", "<leader>us", vim.lsp.buf.references, {})
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
 
 -- Configure formatters
@@ -53,3 +54,13 @@ vim.keymap.set("n", "<leader>nh", ":noh<CR>", { desc = "Hide highlight" })
 
 -- Configure renaming
 vim.keymap.set("n", "<leader>rn", require("renamer").rename, { desc = "Rename" })
+
+-- Configure git
+local gitsigns = require("gitsigns")
+vim.keymap.set("n", "<leader>sh", gitsigns.stage_hunk, { desc = "Stage hunk" })
+vim.keymap.set("n", "<leader>sb", gitsigns.stage_buffer, { desc = "Stage buffer" })
+
+vim.keymap.set("n", "<leader>rh", gitsigns.reset_hunk, { desc = "Reset hunk" })
+vim.keymap.set("n", "<leader>rb", gitsigns.reset_buffer, { desc = "Reset buffer" })
+
+vim.keymap.set("n", "<leader>td", gitsigns.toggle_word_diff, { desc = "Toggle word diff" })

@@ -34,10 +34,10 @@ function ngd() {
   pkill -f "^nvim --listen /tmp/godot.pipe"
 
   if [[ -z "$1" ]]; then
-    /usr/local/bin/godot &> /dev/null &
+    $(which godot) &> /dev/null &
     nvim --listen /tmp/godot.pipe
   else
-    /usr/local/bin/godot -e "$1" &> /dev/null &
+    $(which godot) -e "$1" &> /dev/null &
     nvim --listen /tmp/godot.pipe "$1"
   fi
 }

@@ -1,5 +1,5 @@
 -- Command used for checking lsp, linter and formatter name mappings, aka lua-language-server -> lua_ls
-vim.api.nvim_create_user_command("MasonToolMap", function()
+vim.api.nvim_create_user_command("TOOLMasonToolMap", function()
   local mason_registry = require("mason-registry")
   local mappings = {}
 

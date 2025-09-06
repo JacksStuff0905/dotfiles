@@ -43,12 +43,17 @@ return {
 					"clangd",
 					"docker-compose-language-service",
 					"dockerfile-language-server",
+          "arduino-language-server",
+          "html-lsp",
+          "css-lsp",
 
 					-- Linters
 					"cpplint",
 					"hadolint",
 					"black",
 					"gdtoolkit",
+          "htmlhint",
+          "stylelint",
 
 					-- Formatters
 					"stylua",
@@ -114,7 +119,22 @@ return {
       lspconfig.gdscript.setup({
 				capabilities = capabilities,
 			})
-
+      local FQBN = "arduino:avr:uno"
+      lspconfig.arduino_language_server.setup({
+				capabilities = capabilities,
+        cmd = {
+          "arduino-language-server",
+          "-cli-config", "~/.arduino15/arduino-cli.yaml",
+          "-fqbn",
+          FQBN
+        }
+			})
+      lspconfig.html.setup({
+				capabilities = capabilities,
+			})
+      lspconfig.cssls.setup({
+				capabilities = capabilities,
+			})
 		end,
 	},
 }

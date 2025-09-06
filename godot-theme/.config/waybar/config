@@ -12,14 +12,15 @@
       "hyprland/window"
     ],
     "modules-right": [
+      "custom/hypridle",
       "network",
-    "custom/network-menu",
-    "pulseaudio",
-    "cpu",
-    "memory",
-    "battery",
-    "clock",
-    "custom/power"
+      "custom/network-menu",
+      "pulseaudio",
+      "cpu",
+      "memory",
+      "battery",
+      "clock",
+      "custom/power"
     ],
     // Modules configuration
     "hyprland/workspaces": {
@@ -97,5 +98,17 @@
         "hibernate": "systemctl hibernate",
         "exit_hyprland": "hyprctl dispatch exit",
       }
+    },
+    "custom/hypridle": {
+    //
+      "exec": "echo -n \"{\\\"text\\\":\\\"\"; if pgrep hypridle &> /dev/null; then echo -n 󰒲; else echo -n 󰒳 ; fi; echo \"\\\"}\"; pkill -RTMIN+8 waybar
+",
+      "return-type": "json",
+      "interval": 1,
+      "signal": 8,
+      "tooltip": true,
+      "tooltip-format": "Toggle hypridle",
+      "on-click": "~/.config/hypr/tools/toggle-idle.sh"
     }
+
 }

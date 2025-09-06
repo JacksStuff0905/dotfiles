@@ -20,6 +20,7 @@
 @define-color cpu-color #66D9EF;
 @define-color pulseaudio-color #66D9EF;
 @define-color network-color #66D9EF;
+@define-color hypridle-color #66D9EF;
 
 * {
   font-family: Caskaydia Cove Nerd Font Propo;
@@ -127,6 +128,7 @@ button:hover {
 #power-profiles-daemon,
 #mpd,
 #custom-power,
+#custom-hypridle,
 #window,
 #workspaces {
   padding: 0px 16px;
@@ -262,6 +264,16 @@ label:focus {
 #network.disconnected {
   border-top: 3px solid @error-color;
   color: @error-color
+}
+
+#custom-hypridle {
+  padding-top: 4px;
+  color: @main-text;
+}
+
+#custom-hypridle:hover {
+  padding-top: 1px;
+  border-top: 3px solid @hypridle-color;
 }
 
 #pulseaudio {

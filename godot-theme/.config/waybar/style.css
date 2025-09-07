@@ -2,6 +2,8 @@
 @define-color error-color #F92672;
 @define-color background-color #1E222A;
 
+@define-color urgent #FFB373;
+
 @define-color inactive-text #71757B;
 
 @define-color highlighted-background #2C323D;
@@ -103,7 +105,7 @@ button:hover {
 }
 
 #workspaces button.urgent {
-  background-color: #eb4d4b;
+  background-color: @urgent;
 }
 
 #mode {
@@ -318,7 +320,7 @@ label:focus {
 }
 
 #temperature.critical {
-  background-color: #eb4d4b;
+  background-color: @urgent;
 }
 
 #tray {
@@ -331,7 +333,7 @@ label:focus {
 
 #tray > .needs-attention {
   -gtk-icon-effect: highlight;
-  background-color: #eb4d4b;
+  background-color: @urgent;
 }
 
 #idle_inhibitor {

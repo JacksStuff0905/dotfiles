@@ -1,0 +1,28 @@
+* {
+  border-color:               #363D4A;
+  handle-color:               #252b34;
+  background-color:           #363D4A;
+  foreground-color:           #CDCFD2;
+  normal-background:           #252B34;
+
+  prompt-color: #71757B;
+
+  button-background:          #252B34;
+  textbox-background:          #252B34;
+  scrollbar-background:          #252B34;
+
+  normal-foreground:           #CDCFD2;
+  
+  selected-border: #70BAFA;
+
+  selected-normal-background:  #4c535E;
+  selected-normal-foreground:  #CDCFD2;
+  selected-urgent-background:  #FFB373;
+  selected-urgent-foreground:  #252B34;
+  selected-active-background:  #374F66;
+  selected-active-foreground:  #CDCFD2;
+  urgent-background:           #FFB373;
+  urgent-foreground:           #252B34;
+  active-background:           #374F66;
+  active-foreground:           #CDCFD2;
+}

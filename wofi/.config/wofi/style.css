@@ -1,0 +1,13 @@
+window {
+  font-family: sans-serif;
+  font-size: 12pt;
+}
+
+image {
+  -gtk-icon-effect: dim;
+  margin-right: 8px;
+}
+
+#entry {
+  padding: 4px 6px;
+}

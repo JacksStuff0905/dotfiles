@@ -42,6 +42,10 @@ function ngd() {
   fi
 }
 
+if type zoxide &> /dev/null; then
+  eval "$(zoxide init zsh)"
+fi
+
 # Custom theme
 if [[ -f "$HOME/.current-theme-rc" || -L "$HOME/.current-theme-rc" ]]; then
   zsh "$HOME/.current-theme-rc"

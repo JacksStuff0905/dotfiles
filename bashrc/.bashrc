@@ -47,6 +47,10 @@ function ngd() {
   fi
 }
 
+if type zoxide &> /dev/null; then
+  eval "$(zoxide init bash)"
+fi
+
 
 # Custom theme
 if [[ -f "$HOME/.current-theme-rc" || -L "$HOME/.current-theme-rc" ]]; then

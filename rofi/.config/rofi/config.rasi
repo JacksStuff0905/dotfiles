@@ -41,8 +41,8 @@ window {
   enabled:                     true;
   margin:                      0px;
   padding:                     0px;
-  border:                      5px solid;
-  border-radius:               5px;
+  border:                      0px solid;
+  border-radius:               4px;
   border-color:                @border-color;
   cursor:                      "default";
   /* Backgroud Colors */
@@ -53,7 +53,7 @@ mainbox {
   enabled:                     true;
   spacing:                     10px;
   margin:                      0px;
-  padding:                     20px;
+  padding:                     10px;
   border:                      0px solid;
   border-radius:               0px 0px 0px 0px;
   border-color:                @border-color;
@@ -84,7 +84,7 @@ textbox-prompt-colon {
   enabled:                     true;
   padding:                     5px 0px;
   expand:                      false;
-  str:                         " ";
+  str:                         "  ";
   background-color:            inherit;
   text-color:                  inherit;
 }

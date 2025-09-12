@@ -1,0 +1,89 @@
+(defpoll volume :interval "0.2s"
+  `wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed "s/Volume: //" | awk '{printf "%.3s", substr($0,3)}'`
+)
+
+(defpoll default-sink :interval "0.2s"
+  `echo -n "   "; ./audioctl.sh get-default name`
+)
+
+(defpoll sinks :interval "0.2s"
+  `echo "(box :class \\"sink-buttons\\" :orientation \\"vertical\\""; names="$(./audioctl.sh get-sinks name)"; ids="$(./audioctl.sh get-sinks id)"; index=0; while read -r line; do ((index=index+1)); echo -e "\\t(button :onclick \\"./audioctl.sh set-default $(echo $index | awk '{print $1 - 1}'); \\$\{EWW_CMD} update sinks-expanded=false\\" :class \\"sink-button$([[ "$(./audioctl.sh get-default id)" == "$(echo "$ids" | sed "$\{index\}q;d")" ]] && echo -n "-selected")\\" (centerbox :class \\"sink-box\\" :orientation \\"horizontal\\" (label :xalign 0 :text \\"$(limit=20; s="$(echo "$names" | sed "$\{index\}q;d" | sed 's/ //')"; (( \${#s} > $limit )) && echo -n "\${s:0:$limit}..." || echo "$s")\\") (box) (label :xalign 1 :class \\"sink-volume\\" :text \\"  $(wpctl get-volume "$(echo "$ids" | sed "$\{index\}q;d")" | sed "s/Volume: //" | awk '{printf "%.3s", substr($0,3)}')%\\")))"; done <<< "$(./audioctl.sh get-sinks id)"; echo ")"`
+)
+
+(defvar sinks-expanded false)
+
+(defwidget audio_layout []
+  (box
+    :class "layout"
+    :orientation "vertical"
+    :space-evenly false
+    (box
+      :vexpand false
+      :valign "top"
+      :class "content"
+      :orientation "vertical"
+      :space-evenly false
+      (label :class "volume-label" :text "Volume")
+      (scale :class "volume-slider"
+        :value volume
+        :flipped false
+        :onchange "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ {}%"
+        :draw-value true
+        :min 0
+        :max 101
+      )
+      (sink_display)
+    )
+
+    (box 
+      :class "closer"
+      :halign "fill"
+      :valign "fill"
+      :vexpand "true"
+      :hexpand "true"
+      (closer :window "audio" :halign "fill" :valign "fill" :vexpand "true" :hexpand "true")
+    )
+  )
+)
+
+(defwidget sink_display []
+  (box :orientation "vertical"
+    (expander
+      :class "sinks"
+      :vexpand false
+      :expanded sinks-expanded
+      :name default-sink
+      :valign "center"
+      (literal
+        :content sinks
+      )
+    )
+  )
+)
+
+(defwindow audio [pos_x]
+  :monitor 0 ;; Optional for X11
+  :namespace "bar"
+  :exclusive false
+  :stacking "fg"
+  :windowtype "dock"
+  :geometry (geometry
+    :anchor "top left"
+    :x pos_x
+  )
+  (audio_layout))
+
+
+
+(defwidget closer [window]
+  ;; Choose between click-off or hover-off hiding (change :onhover to :onclick and vice versa)
+  (eventbox :onclick "${EWW_CMD} close ${window} && ${EWW_CMD} close ${window}_closer")
+)
+ 
+(defwindow audio_closer
+  :monitor 0
+  :geometry (geometry :width "100%" :height "100%")
+  :stacking "fg"
+  :exclusive false
+  :focusable false
+  (closer :window "audio"))

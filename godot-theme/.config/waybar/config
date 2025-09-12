@@ -84,7 +84,8 @@
         "car": "",
         "default": ["", "", ""]
       },
-      "on-click": "pavucontrol"
+      "exec": "eww daemon --config $HOME/.config/waybar/menus/audio/.",
+      "on-click": "$HOME/.config/waybar/menus/audio/audio.sh"
     },
     "custom/power": {
       "format" : "⏻",
@@ -92,7 +93,7 @@
       "menu": "on-click",
       "menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
       "menu-actions": {
-        "shutdown": "shutdown",
+        "shutdown": "systemctl poweroff",
         "reboot": "reboot",
         "suspend": "systemctl suspend",
         "hibernate": "systemctl hibernate",

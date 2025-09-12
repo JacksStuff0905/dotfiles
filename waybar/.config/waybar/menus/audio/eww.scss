@@ -1,0 +1,80 @@
+@import "theme";
+
+* {
+  background-color: unset;
+  font-size: 12pt;
+}
+
+slider {
+  all: unset;
+}
+
+.closer {
+  min-height: 50px;
+}
+
+.volume-label {
+  margin-top: 10px;
+}
+
+.volume-slider trough {
+  all: unset;
+
+
+  background-color: $theme_slider_bg_color;
+  min-height: 14px;
+}
+
+.volume-slider trough highlight {
+  background-color: $theme_slider_fg_color;
+  border-radius: 0;
+}
+
+.layout {
+  min-height: 800px;
+  background-color: transparent;
+  min-width: 310px;
+}
+
+.content {
+  background-color: $theme_bg_color;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.sinks {
+  margin-top: 10px;
+  padding: 10px;
+  background: transparent;
+}
+
+.sink-buttons {
+  padding-top: 15px;
+  border-width: 0;
+}
+
+.sink-button {
+  border-radius: 0;
+  background-color: $theme_button_color;
+  border-width: 0;
+  
+  min-height: 30px;
+}
+
+.sink-button-selected {
+  border-radius: 0;
+  background-color: $theme_button_selected_color;
+  border-width: 0;
+
+  border-left: solid 5px $theme_button_selected_border;
+
+  min-height: 30px;
+}
+
+.sink-box {
+  padding: 10px;
+}
+
+.sink-volume {
+  min-width: 0px;
+}

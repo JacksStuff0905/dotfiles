@@ -2,7 +2,7 @@
 
 eww daemon --config $HOME/.config/waybar/menus/audio/. &> /dev/null
 
-volume_pctg="$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed "s/Volume: //" | awk '{printf "%.3s", substr($0,3)}')"
+volume_pctg="$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed "s/Volume: //" | awk '{printf $0 * 100}')"
 
 mute="$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -o "\[MUTED\]$")"
 

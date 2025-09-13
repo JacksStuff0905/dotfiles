@@ -172,6 +172,12 @@ button:hover {
 }
 
 
+#workspaces {
+  border: 0;
+  padding-top: 0;
+}
+
+
 
 #custom-power {
   padding-top: 4px;

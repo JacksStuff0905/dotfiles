@@ -91,7 +91,7 @@
       "format" : "{icon}",
       "format-icons": {
         "mute": "",
-        "default": ["", "", ""]
+        "default": ["", "", "", "", "", ""]
       },
 
       "interval": 1,

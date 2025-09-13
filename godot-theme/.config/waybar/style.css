@@ -16,13 +16,7 @@
 
 /* Mode colors*/
 @define-color power-color #4A7032;
-@define-color clock-color #66D9EF;
-@define-color battery-color #66D9EF;
-@define-color memory-color #66D9EF;
-@define-color cpu-color #66D9EF;
-@define-color pulseaudio-color #66D9EF;
-@define-color network-color #66D9EF;
-@define-color hypridle-color #66D9EF;
+@define-color top-bar-color #66D9EF;
 
 * {
   font-family: Caskaydia Cove Nerd Font Propo;
@@ -68,12 +62,16 @@ button {
   border-radius: 0;
 }
 
+
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
   background: inherit;
   box-shadow: inherit;
   text-shadow: inherit;
 }
+
+
+
 
 #workspaces button {
   /* border-top: 3px solid @workspace-underline; */
@@ -112,7 +110,7 @@ button:hover {
   background-color: #64727D;
 }
 
-#clock,
+/*#clock,
 #battery,
 #cpu,
 #memory,
@@ -136,7 +134,7 @@ button:hover {
   padding: 0px 16px;
   background-color: transparent;
 
-}
+}*/
 
 #window {
   border-top: 3px solid @current-workspace-underline;
@@ -148,6 +146,8 @@ button:hover {
 
 }
 
+
+
 /* If workspaces is the leftmost module, omit left margin */
 .modules-left > widget:first-child > #workspaces {
   margin-left: 0;
@@ -157,6 +157,21 @@ button:hover {
 .modules-right > widget:last-child > #workspaces {
   margin-right: 0;
 }
+
+
+.modules-right > * > *, .modules-left > * > *, .modules-center > * > * {
+  padding-top: 4px;
+  padding-left: 16px;
+  padding-right: 16px;
+  color: @main-text;
+}
+
+.modules-right > * > *:hover, .modules-left > * > *:hover, .modules-center > * > *:hover {
+  padding-top: 1px;
+  border-top: 3px solid @top-bar-color;
+}
+
+
 
 #custom-power {
   padding-top: 4px;
@@ -169,24 +184,15 @@ button:hover {
 }
 
 #clock {
-  padding-top: 4px;
-  color: @main-text;
-  /* border-top: 3px solid @clock-color; */
 }
 
 #clock:hover {
-  padding-top: 1px;
-  border-top: 3px solid @clock-color;
 }
 
 #battery {
-  padding-top: 4px;
-  color: @main-text;
 }
 
 #battery:hover {
-  padding-top: 1px;
-  border-top: 3px solid @battery-color;
 }
 
 /* TODO */
@@ -226,23 +232,15 @@ label:focus {
 }
 
 #cpu {
-  padding-top: 4px;
-  color: @main-text;
 }
 
 #cpu:hover {
-  padding-top: 1px;
-  border-top: 3px solid @cpu-color;
 }
 
 #memory {
-  padding-top: 4px;
-  color: @main-text;
 }
 
 #memory:hover {
-  padding-top: 1px;
-  border-top: 3px solid @memory-color;
 }
 
 #disk {
@@ -254,13 +252,9 @@ label:focus {
 }
 
 #network {
-  padding-top: 4px;
-  color: @main-text;
 }
 
 #network:hover {
-  padding-top: 1px;
-  border-top: 3px solid @network-color;
 }
 
 #network.disconnected {
@@ -269,23 +263,15 @@ label:focus {
 }
 
 #custom-hypridle {
-  padding-top: 4px;
-  color: @main-text;
 }
 
 #custom-hypridle:hover {
-  padding-top: 1px;
-  border-top: 3px solid @hypridle-color;
 }
 
 #pulseaudio {
-  padding-top: 4px;
-  color: @main-text;
 }
 
 #pulseaudio:hover {
-  padding-top: 1px;
-  border-top: 3px solid @pulseaudio-color;
 }
 
 #pulseaudio.muted {
@@ -293,8 +279,6 @@ label:focus {
 }
 
 #wireplumber {
-  background-color: #fff0f5;
-  color: @main-text;
 }
 
 #wireplumber.muted {

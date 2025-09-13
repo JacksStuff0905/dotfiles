@@ -15,7 +15,8 @@
       "custom/hypridle",
       "network",
       "custom/network-menu",
-      "pulseaudio",
+      //"pulseaudio",
+      "custom/audio",
       "cpu",
       "memory",
       "battery",
@@ -67,25 +68,40 @@
       "format-linked": "(No IP) 󱚵",
       "format-disconnected": " ⚠"
     },
-    "pulseaudio": {
-      // "scroll-step": 1, // %, can be a float
-      "format": "{volume}% {icon} {format_source}",
-      "format-bluetooth": "{volume}% {icon} {format_source}",
-      "format-bluetooth-muted": " {icon} {format_source}",
-      "format-muted": " {format_source}",
-      "format-source": "",
-      "format-source-muted": "",
+    //"pulseaudio": {
+    //  // "scroll-step": 1, // %, can be a float
+    //  "format": "{volume}% {icon} {format_source}",
+    //  "format-bluetooth": "{volume}% {icon} {format_source}",
+    //  "format-bluetooth-muted": " {icon} {format_source}",
+    //  "format-muted": " {format_source}",
+    //  "format-source": "",
+    //  "format-source-muted": "",
+    //  "format-icons": {
+    //    "headphone": "",
+    //    "hands-free": "",
+    //    "headset": "",
+    //    "phone": "",
+    //    "portable": "",
+    //    "car": "",
+    //    "default": ["", "", ""]
+    //  },
+    //  "on-click": "$HOME/.config/waybar/menus/audio/audio.sh"
+    //},
+    "custom/audio": {
+      "format" : "{icon}",
       "format-icons": {
-        "headphone": "",
-        "hands-free": "",
-        "headset": "",
-        "phone": "",
-        "portable": "",
-        "car": "",
+        "mute": "",
         "default": ["", "", ""]
       },
-      "exec": "eww daemon --config $HOME/.config/waybar/menus/audio/.",
-      "on-click": "$HOME/.config/waybar/menus/audio/audio.sh"
+
+      "interval": 1,
+
+      "exec": "$HOME/.config/waybar/modules/audio/audio.sh",
+      "return-type": "json",
+
+      "on-click": "$HOME/.config/waybar/menus/audio/audio.sh",
+      "on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%+",
+      "on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 2%-"
     },
     "custom/power": {
       "format" : "⏻",

@@ -27,7 +27,7 @@
       (scale :class "volume-slider"
         :value volume
         :flipped false
-        :onchange "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ {}%"
+        :onchange "./audioctl.sh set-volume {}"
         :draw-value true
         :min 0
         :max 101

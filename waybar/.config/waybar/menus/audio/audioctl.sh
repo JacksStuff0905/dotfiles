@@ -36,6 +36,15 @@ elif [[ "$mode" == "get-default" ]]; then
 elif [[ "$mode" == "set-volume" ]]; then
   volume="$2"
   sample=${3:-0}
+  
+  if [[ $volume -ge 100 ]]; then
+    volume=100
+  fi
+
+  if [[ $volume -le 0 ]]; then
+    volume=0
+  fi
+
   wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ "$volume"%
 
   # Play sample

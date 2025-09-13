@@ -1,5 +1,5 @@
 (defpoll volume :interval "0.2s"
-  `wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed "s/Volume: //" | awk '{printf "%.3s", substr($0,3)}'`
+  `wpctl get-volume @DEFAULT_AUDIO_SINK@ | sed "s/Volume: //" | awk '{print $0 * 100}'`
 )
 
 (defpoll default-sink :interval "0.2s"
@@ -29,6 +29,7 @@
         :flipped false
         :onchange "./audioctl.sh set-volume {}"
         :draw-value true
+        :round-digits true
         :min 0
         :max 101
       )

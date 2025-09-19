@@ -74,7 +74,7 @@ return {
 			},
 			setup = {
 				gdscript = function(_, opts)
-					require("lspconfig").gdscript.setup({
+					vim.lsp.config.gdscript.setup({
 						name = "godot",
 
 						-- Fill in your Godot Language Server parameters
@@ -93,48 +93,17 @@ return {
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-			local lspconfig = require("lspconfig")
-
-			lspconfig.lua_ls.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.pyright.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.omnisharp.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.bashls.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.clangd.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.docker_compose_language_service.setup({
-				capabilities = capabilities,
-			})
-			lspconfig.dockerls.setup({
-				capabilities = capabilities,
-			})
-      lspconfig.gdscript.setup({
-				capabilities = capabilities,
-			})
-      local FQBN = "arduino:avr:uno"
-      lspconfig.arduino_language_server.setup({
-				capabilities = capabilities,
-        cmd = {
-          "arduino-language-server",
-          "-cli-config", "~/.arduino15/arduino-cli.yaml",
-          "-fqbn",
-          FQBN
-        }
-			})
-      lspconfig.html.setup({
-				capabilities = capabilities,
-			})
-      lspconfig.cssls.setup({
-				capabilities = capabilities,
-			})
+			vim.lsp.enable('lua_ls')
+			vim.lsp.enable('pyright')
+			vim.lsp.enable('omnisharp')
+			vim.lsp.enable('bashls')
+			vim.lsp.enable('clangd')
+			vim.lsp.enable('docker_compose_language_service')
+			vim.lsp.enable('dockerls')
+      vim.lsp.enable('gdscript')
+      vim.lsp.enable('arduino_language_server')
+      vim.lsp.enable('html')
+      vim.lsp.enable('cssls')
 		end,
 	},
 }

@@ -1,18 +1,24 @@
 @import "colors"
 
 configuration {
-  modi:                       "drun,run,filebrowser,window";
+  modi:                       "drun,run,filebrowser,window,emoji,calc";
   show-icons:                 true;
   display-drun:               "󰌧";
   display-run:                "";
   display-filebrowser:        "";
   display-window:             "";
+  display-emoji:              "";
+  display-calc:               "󰃬";
   drun-display-format:        "{name}";
   window-format:              "{w}  {c}  {t}";
 
   case-sensitive: false;
   matching: "normal";
   ignore-accent: true;
+
+  calc {
+    calc-command: "wl-copy {result}";
+  }
 
   // Keybinds:
   kb-mode-complete: "";
@@ -223,6 +229,8 @@ mode-switcher{
   border-color:                @border-color;
   background-color:            transparent;
   text-color:                  @foreground-color;
+  
+  font-size:                   40px;
 }
 
 button {

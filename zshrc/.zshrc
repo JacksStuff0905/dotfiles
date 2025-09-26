@@ -17,6 +17,7 @@ function y() {
 # Custom
 if type kitten &> /dev/null; then
   alias icat='kitten icat'
+  alias ssh='kitten ssh'
 fi
 
 # Env

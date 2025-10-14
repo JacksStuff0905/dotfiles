@@ -13,6 +13,7 @@ configuration {
   window-format:              "{w}  {c}  {t}";
 
   case-sensitive: false;
+  drun-match-fields: "name";
   matching: "normal";
   ignore-accent: true;
 

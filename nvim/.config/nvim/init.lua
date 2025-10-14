@@ -25,3 +25,4 @@ require("conf.clipboard")
 
 -- Load optional configs
 require_opt("opt.utils")
+require_opt("opt.spellcheck")

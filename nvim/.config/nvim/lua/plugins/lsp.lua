@@ -46,6 +46,8 @@ return {
           "arduino-language-server",
           "html-lsp",
           "css-lsp",
+          "biome",
+          "jdtls",
 
 					-- Linters
 					"cpplint",
@@ -54,6 +56,7 @@ return {
 					"gdtoolkit",
           "htmlhint",
           "stylelint",
+          "checkstyle",
 
 					-- Formatters
 					"stylua",
@@ -104,6 +107,8 @@ return {
       vim.lsp.enable('arduino_language_server')
       vim.lsp.enable('html')
       vim.lsp.enable('cssls')
+      vim.lsp.enable('biome')
+      vim.lsp.enable('java_language_server')
 		end,
 	},
 }

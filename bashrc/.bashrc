@@ -19,9 +19,17 @@ function y() {
 }
 
 # Custom
+
+# Use nvim for man:
+export MANPAGER='nvim +Man!'
+
 if type kitten &> /dev/null; then
   alias icat='kitten icat'
   alias ssh='kitten ssh'
+fi
+
+if type z &> /dev/null; then
+  alias cd='z'
 fi
 
 # Env

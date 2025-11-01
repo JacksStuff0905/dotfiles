@@ -10,7 +10,12 @@ if [[ "$mode" == "get-sinks" ]]; then
   ids="$(wpctl status | sed -e '1,/Sinks:/ d' -e '/Sink endpoints:/ q' | sed '/\├/q' | head -n -2 | grep -o "^[^\.]*" | grep -o '[[:digit:]]\+')"
   if [[ "$option" == "name" ]]; then
     while read -r line; do
-      wpctl inspect "$line" | grep "node.nick" | sed 's/ \* node.nick = \"//' | grep -o "[^\"]*"
+      nick="$(wpctl inspect "$line" | grep "node.nick" | sed 's/ *\** *node.nick = \"//' | grep -o "[^\"]*")"
+      if [[ -n "$nick" ]]; then
+        echo "$nick"
+      else
+        wpctl inspect "$line" | grep "node.description" | sed 's/ *\** *node.description = \"//' | grep -o "[^\"]*"
+      fi
     done <<< $ids
   elif [[ "$option" == "id" ]] || [[ -z "$option" ]]; then
     echo "$ids"
@@ -28,7 +33,12 @@ elif [[ "$mode" == "get-default" ]]; then
   option="$2"
   id="$(wpctl status | sed -e '1,/Sinks:/ d' -e '/Sink endpoints:/ q' | sed '/\├/q' | head -n -2 | grep " \* " | grep -o '[[:digit:]]\+' | head -n 1)"
   if [[ "$option" == "name" ]]; then
-    wpctl inspect "$id" | grep "node.nick" | sed 's/ \* node.nick = \"//' | grep -o "[^\"]*"
+      nick="$(wpctl inspect "$id" | grep "node.nick" | sed 's/ *\** *node.nick = \"//' | grep -o "[^\"]*")"
+      if [[ -n "$nick" ]]; then
+        echo "$nick"
+      else
+        wpctl inspect "$id" | grep "node.description" | sed 's/ *\** *node.description = \"//' | grep -o "[^\"]*"
+      fi
   elif [[ "$option" == "id" ]] || [[ -z "$option" ]]; then
     echo "$id"
   fi

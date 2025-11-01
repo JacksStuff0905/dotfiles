@@ -21,12 +21,16 @@
 
   export ZVM_SYSTEM_CLIPBOARD_ENABLED=true
 
+  export ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
+
   # 2. Optional: enable indicator in the right prompt
   export ZVM_MODE_CURSOR=true
 
   ### Plugins
   # Load the full-featured Vim-style line editor
   zinit light jeffreytse/zsh-vi-mode
+  zvm_after_init() {
+  }
 
 } && clear
 
@@ -37,6 +41,7 @@ alias zshupdate='zinit self-update && zinit update -all'
 
 ### --- GENERAL --- ###
 
+# Aliases
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 PS1="%n@%m %1~ %#"
@@ -59,10 +64,15 @@ function y() {
 }
 
 # Custom
+
+# Use nvim for man:
+export MANPAGER='nvim +Man!'
+
 if type kitten &> /dev/null; then
   alias icat='kitten icat'
   alias ssh='kitten ssh'
 fi
+
 
 # Env
 if type nvim &> /dev/null; then
@@ -89,6 +99,7 @@ function ngd() {
 
 if type zoxide &> /dev/null; then
   eval "$(zoxide init zsh)"
+  alias cd='z'
 fi
 
 # Custom theme
